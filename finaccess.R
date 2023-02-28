@@ -1,6 +1,6 @@
 getwd()
 library(foreign)
-my_data = read.spss("kenya finaccess survey 2021.sav", to.data.frame=TRUE)
+my_data = read.spss("kenya finaccess survey 2021_3.sav", to.data.frame=TRUE)
 head(my_data)
 my_data <- data.frame(my_data)
 str(my_data)

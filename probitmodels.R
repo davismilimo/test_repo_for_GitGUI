@@ -1,4 +1,4 @@
-# Multinomial Logit and Logit Model in R
+# Multinomial Probit and Probit Model in R
 # Authored by Davis Milimo
 # Here is the link to the dataset that I am using https://github.com/davismilimo/test_repo_for_GitGUI/blob/main/kenya%20finaccess%20survey%202021.sav
 

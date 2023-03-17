@@ -5,11 +5,10 @@
 rm(list=ls()); options(scipen=999)
 install.packages("foreign", dependencies=TRUE)
 install.packages("nnet", dependencies=TRUE)
-
 getwd()
 library(foreign) # load the package
 library(nnet) # load the package
-my_data = read.spss("kenya finaccess survey 2021_16.sav", to.data.frame=TRUE)
+my_data = read.spss("kenya finaccess survey 2021.sav", to.data.frame=TRUE)
 attach(my_data)
 head(my_data)
 

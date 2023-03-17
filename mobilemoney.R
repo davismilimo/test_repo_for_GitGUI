@@ -2,6 +2,7 @@
 # Authored by Davis Milimo
 # Here is the link to the dataset that I am using https://github.com/davismilimo/test_repo_for_GitGUI/blob/main/mobile%20money%20cbk%20data.csv
 
+#rm(list=ls()); options(scipen=999)
 #install.packages("readr")
 getwd()
 library(readr)

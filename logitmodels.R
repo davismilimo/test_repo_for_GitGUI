@@ -1,43 +1,58 @@
-# Multinomial Logit and Logit Model in R
+# Logit and Probit Models in R
 # Authored by Davis Milimo
 # Here is the link to the dataset that I am using https://github.com/davismilimo/test_repo_for_GitGUI/blob/main/kenya%20finaccess%20survey%202021.sav
 
-# install.packages("nnet")
-# install.packages("foreign")
+# rm(list=ls()); options(scipen=999)
+# install.packages("nnet", dependencies=TRUE)
+# install.packages("foreign", dependencies=TRUE)
+
 getwd()
-library(foreign)
-library(nnet)
-my_data = read.spss("kenya finaccess survey 2021.sav", to.data.frame=TRUE)
+library(foreign) # load the package
+library(nnet) # load the package
+my_data = read.spss("kenya finaccess survey 2021_16.sav", to.data.frame=TRUE)
 attach(my_data)
+head(my_data)
 
 # Descriptive statistics
-table(my_data$C1_2)
-table(my_data$C1_3)
-table(my_data$C1_12)
-table(my_data$C1_13)
-table(my_data$G1A1__3)
-table(my_data$G1A4__3)
+C1_2_currentlyuse = as.factor(C1_2_currentlyuse);table(C1_2_currentlyuse)
+# logistic regression
+summary(glm(C1_2_currentlyuse ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family="binomial",data=my_data))
+# probit regression
+summary(glm(C1_2_currentlyuse ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family = binomial(link = "probit"), data= my_data))
 
-my_data$livelihoodcat <- as.factor(my_data$livelihoodcat)
-my_data$quintile <- as.factor(my_data$quintile)
-my_data$education <- as.factor(my_data$education)
+# Descriptive statistics
+C1_3_currentlyuse = as.factor(C1_3_currentlyuse);table(C1_3_currentlyuse)
+# logistic regression
+summary(glm(C1_3_currentlyuse ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family="binomial",data=my_data))
+# probit regression
+summary(glm(C1_3_currentlyuse ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family = binomial(link = "probit"), data= my_data))
 
-# Multinomial Logit
-model1 = multinom(C1_2 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock, data= my_data)
-summary(model1)
 
-model2 = multinom(C1_3 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock, data= my_data)
-summary(model2)
+# Descriptive statistics
+C1_12_currentlyuse = as.factor(C1_12_currentlyuse);table(C1_12_currentlyuse)
+# logistic regression
+summary(glm(C1_12_currentlyuse ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family="binomial",data=my_data))
+# probit regression
+summary(glm(C1_12_currentlyuse ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family = binomial(link = "probit"), data= my_data))
 
-model3 = multinom(C1_12 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock, data= my_data)
-summary(model3)
+# Descriptive statistics
+C1_13_currentlyuse = as.factor(C1_13_currentlyuse);table(C1_13_currentlyuse)
+# logistic regression
+summary(glm(C1_13_currentlyuse ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family="binomial",data=my_data))
+# probit regression
+summary(glm(C1_13_currentlyuse ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family = binomial(link = "probit"), data= my_data))
 
-model4 = multinom(C1_13 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock, data= my_data)
-summary(model4)
+# Descriptive statistics
+G1A1__3 = as.factor(G1A1__3);table(G1A1__3)
+# logistic regression
+summary(glm(G1A1__3 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family="binomial",data=my_data))
+# probit regression
+summary(glm(G1A1__3 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family = binomial(link = "probit"), data= my_data))
 
-# Logit model
-model5 = glm(G1A1__3 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock, data= my_data, family = "binomial")
-summary(model5)
+# Descriptive statistics
+G1A4__3 = as.factor(G1A4__3);table(G1A4__3)
+# logistic regression
+summary(glm(G1A4__3 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family="binomial",data=my_data))
+# probit regression
+summary(glm(G1A4__3 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock+age+agesq,family = binomial(link = "probit"), data= my_data))
 
-model6 = glm(G1A4__3 ~ livelihoodcat+quintile+Urban+Female+married+education+mobile_own+experienced_shock, data= my_data, family = "binomial")
-summary(model6)

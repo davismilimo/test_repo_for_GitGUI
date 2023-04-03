@@ -51,7 +51,7 @@ tobit <- censReg(C1_3_currentlyuse ~ livelihoodcat+quintile+urban+female+marital
 marg.eff = margEff(tobit); summary(marg.eff)
 
 # loan from mobile banking
-# Descriptive statistics
+# descriptive statistics
 C1_12_currentlyuse = as.factor(C1_12_currentlyuse);table(C1_12_currentlyuse)
 # logistic regression
 logit <- glm(C1_12_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)
@@ -64,7 +64,7 @@ tobit <- censReg(C1_12_currentlyuse ~ livelihoodcat+quintile+urban+female+marita
 marg.eff = margEff(tobit); summary(marg.eff)
 
 # loan from mobile money provider
-# Descriptive statistics
+# descriptive statistics
 C1_13_currentlyuse = as.factor(C1_13_currentlyuse);table(C1_13_currentlyuse)
 # logistic regression
 logit <- glm(C1_13_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)
@@ -90,7 +90,7 @@ tobit <- censReg(G1A1__3 ~ livelihoodcat+quintile+urban+female+marital+education
 marg.eff = margEff(tobit); summary(marg.eff)
 
 # paid daily expenses via mobile money account
-# Descriptive statistics
+# descriptive statistics
 G1A4__3 = as.factor(G1A4__3);table(G1A4__3)
 # logistic regression
 logit <- glm(G1A4__3 ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)

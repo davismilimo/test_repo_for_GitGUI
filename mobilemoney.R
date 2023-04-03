@@ -1,8 +1,10 @@
-# Visualization in R
-# Authored by Davis Milimo
-# Here is the link to the dataset that I am using https://github.com/davismilimo/test_repo_for_GitGUI/blob/main/mobile%20money%20cbk%20data.csv
+# visualization using R and R studio
+# authored by Davis Milimo
+# here is the link to my github https://github.com/davismilimo/test_repo_for_GitGUI
 
-#rm(list=ls()); options(scipen=999)
+# clear memory
+rm(list=ls())
+
 #install.packages("readr")
 getwd()
 library(readr)

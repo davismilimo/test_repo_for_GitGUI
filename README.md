@@ -40,13 +40,13 @@ To run the **R code**, install **R-Studio and R software**, and the following **
     
 ## 1. Saving through mobile banking 
 ## Descriptive statistics
-    C1_2_currentlyuse = as.factor(C1_2_currentlyuse);table(C1_2_currentlyuse)
+    C1_2_currentlyuse = as.factor(C1_2_currentlyuse); table(C1_2_currentlyuse)
     
-    livelihoodcat = as.factor(livelihoodcat);table(livelihoodcat)
+    livelihoodcat = as.factor(livelihoodcat); table(livelihoodcat)
     
-    quintile = as.factor(quintile);table(quintile)
+    quintile = as.factor(quintile); table(quintile)
     
-    education = as.factor(education);table(education)
+    education = as.factor(education); table(education)
 ## Logistic regression
     logit <- glm(C1_2_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)
     marg.eff = logitmfx(C1_2_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,data = my_data, atmean = T); marg.eff
@@ -59,7 +59,7 @@ To run the **R code**, install **R-Studio and R software**, and the following **
     
 ## 2. Saving/keeping through mobile money account
 ## Descriptive statistics
-    C1_3_currentlyuse = as.factor(C1_3_currentlyuse);table(C1_3_currentlyuse)
+    C1_3_currentlyuse = as.factor(C1_3_currentlyuse); table(C1_3_currentlyuse)
 ## Logistic regression
     logit <- glm(C1_3_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)
     marg.eff = logitmfx(C1_3_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,data = my_data, atmean = T); marg.eff 
@@ -72,7 +72,7 @@ To run the **R code**, install **R-Studio and R software**, and the following **
     
 ## 3. Loan from mobile banking
 ## Descriptive statistics
-    C1_12_currentlyuse = as.factor(C1_12_currentlyuse);table(C1_12_currentlyuse)
+    C1_12_currentlyuse = as.factor(C1_12_currentlyuse); table(C1_12_currentlyuse)
 ## Logistic regression
     logit <- glm(C1_12_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)
     marg.eff = logitmfx(C1_12_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,data = my_data, atmean = T); marg.eff 
@@ -85,7 +85,7 @@ To run the **R code**, install **R-Studio and R software**, and the following **
     
 ## 4. Loan from mobile money provider
 ## Descriptive statistics
-    C1_13_currentlyuse = as.factor(C1_13_currentlyuse);table(C1_13_currentlyuse)
+    C1_13_currentlyuse = as.factor(C1_13_currentlyuse); table(C1_13_currentlyuse)
 ## Logistic regression
     logit <- glm(C1_13_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)
     marg.eff = logitmfx(C1_13_currentlyuse ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,data = my_data, atmean = T); marg.eff 
@@ -98,7 +98,7 @@ To run the **R code**, install **R-Studio and R software**, and the following **
     
 ## 5. Paid monthly bills via mobile money account
 ## Descriptive statistics
-    G1A1__3 = as.factor(G1A1__3);table(G1A1__3)
+    G1A1__3 = as.factor(G1A1__3); table(G1A1__3)
 ## Logistic regression
     logit <- glm(G1A1__3 ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)
     marg.eff = logitmfx(G1A1__3 ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,data = my_data, atmean = T); marg.eff 
@@ -111,7 +111,7 @@ To run the **R code**, install **R-Studio and R software**, and the following **
 
 ## 6. Paid daily expenses via mobile money account
 ## Descriptive statistics
-    G1A4__3 = as.factor(G1A4__3);table(G1A4__3)
+    G1A4__3 = as.factor(G1A4__3); table(G1A4__3)
 ## Logistic regression
     logit <- glm(G1A4__3 ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,family="binomial",data=my_data); summary(logit)
     marg.eff = logitmfx(G1A4__3 ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq,data = my_data, atmean = T); marg.eff 
@@ -122,6 +122,7 @@ To run the **R code**, install **R-Studio and R software**, and the following **
     tobit <- censReg(G1A4__3 ~ livelihoodcat+quintile+urban+female+marital+education+mobile_own+shock+age+agesq, left=0, right=Inf, data=my_data); summary(tobit)
     marg.eff = margEff(tobit); summary(marg.eff)
     
+
     
     
     
